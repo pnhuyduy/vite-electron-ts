@@ -1,0 +1,35 @@
+/**
+ * @type {import('eslint').Linter.Config}
+ * @see https://eslint.org/docs/user-guide/configuring/
+ */
+
+{
+  "extends": ["@antfu"],
+  "overrides": [
+    {
+      "files": "**/*.{vue}",
+      "rules": {
+        "no-console": "off",
+        "vue/html-self-closing": "off",
+        "vue/script-setup-uses-vars": "off"
+      }
+    },
+    {
+      "files": "plugin/**/*.ts",
+      "rules": {
+        "no-console": "off"
+      }
+    },
+    {
+      "files": "src/**/**/*.ts",
+      "rules": {
+        "no-useless-call": "off",
+        "no-console": "off",
+        "@typescript-eslint/consistent-type-imports": "off",
+        "@typescript-eslint/no-use-before-define": "off",
+        "@typescript-eslint/no-unused-vars": "off",
+        "n/no-deprecated-api": "off"
+      }
+    }
+  ]
+}

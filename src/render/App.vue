@@ -1,31 +1,27 @@
-<template>
-  <img class="logo" alt="Vue logo" src="./assets/vite.svg" />
-  <img class="logo" alt="Vue logo" src="./assets/logo.png" />
-  <img class="logo" alt="Vue logo" src="./assets/electron.png" />
-  <HelloWorld :msg="msg" />
-</template>
-
 <script lang="ts">
 import { defineComponent } from 'vue'
 import HelloWorld from '@/components/HelloWorld.vue'
-import { getHello } from './api';
 export default defineComponent({
   name: 'App',
   components: {
-    HelloWorld
+    HelloWorld,
   },
-  data () {
+  data() {
     return {
-      msg: ''
+      msg: '',
     }
   },
-  mounted() {
-    getHello().then((res: any) => {
-      this.msg = res.data
-    })
-  }
 })
 </script>
+
+<template>
+  <div class="flex justify-center mb-5">
+    <img class="logo" alt="Vue logo" src="./assets/vite.svg" />
+    <img class="logo" alt="Vue logo" src="./assets/logo.png" />
+    <img class="logo" alt="Vue logo" src="./assets/electron.png" />
+  </div>
+  <HelloWorld :msg="msg" />
+</template>
 
 <style>
 #app {

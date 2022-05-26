@@ -1,12 +1,14 @@
 import { join } from 'path'
 import { BrowserWindow, app } from 'electron'
+
+process.env.ELECTRON_DISABLE_SECURITY_WARNINGS = 'true'
+
 const isDev = process.env.NODE_ENV === 'development'
 const WinURL = isDev
   ? 'http://localhost:3000'
   : `file://${join(__dirname, '../../dist/render/index.html')}`
 
 let mainWindow: BrowserWindow | null = null
-let willQuitApp = false
 
 if (!app.requestSingleInstanceLock()) {
   app.quit()
@@ -62,4 +64,3 @@ app.on('activate', () => {
   if (!mainWindow) createWindow()
   else mainWindow.show()
 })
-app.on('before-quit', () => (willQuitApp = true))

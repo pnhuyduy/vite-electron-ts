@@ -480,6 +480,26 @@
     "@typescript-eslint/types" "5.26.0"
     eslint-visitor-keys "^3.3.0"
 
+"@vicons/antd@^0.12.0":
+  version "0.12.0"
+  resolved "https://registry.yarnpkg.com/@vicons/antd/-/antd-0.12.0.tgz#56612381fb3fc79c0bf8d117c2f4de24de52cbbd"
+  integrity sha512-C0p6aO1EmGG1QHrqgUWQS1No20934OdWSRQshM5NIDK5H1On6tC26U0hT6Rmp40KfUsvhvX5YW8BoWJdNFifPg==
+
+"@vicons/fa@^0.12.0":
+  version "0.12.0"
+  resolved "https://registry.yarnpkg.com/@vicons/fa/-/fa-0.12.0.tgz#a5f92db45990f8a47b5eeedcdb9b673f0dababc8"
+  integrity sha512-g2PIeJLsTHUjt6bK63LxqC0uYQB7iu+xViJOxvp1s8b9/akpXVPVWjDTTsP980/0KYyMMe4U7F/aUo7wY+MsXA==
+
+"@vicons/ionicons4@^0.12.0":
+  version "0.12.0"
+  resolved "https://registry.yarnpkg.com/@vicons/ionicons4/-/ionicons4-0.12.0.tgz#20fc1c76b048638a49e76880c10846843b63dc1f"
+  integrity sha512-i+7YwlpCrqD6m9esbZLy1bpVQlh4CKugtS3OzgfNw6BLTQQK6HT7drktaJgcESj/BTr4avdNbAtMQXx56wSVMg==
+
+"@vicons/ionicons5@^0.12.0":
+  version "0.12.0"
+  resolved "https://registry.yarnpkg.com/@vicons/ionicons5/-/ionicons5-0.12.0.tgz#c39fda04420dfae3b58053faf8aaf3555253299d"
+  integrity sha512-Iy1EUVRpX0WWxeu1VIReR1zsZLMc4fqpt223czR+Rpnrwu7pt46nbnC2ycO7ItI/uqDLJxnbcMC7FujKs9IfFA==
+
 "@vitejs/plugin-vue@^1.10.1":
   version "1.10.1"
   resolved "https://registry.yarnpkg.com/@vitejs/plugin-vue/-/plugin-vue-1.10.1.tgz#d140e93d574c5eac247a79f5b15df665dcb7635b"
@@ -635,6 +655,11 @@
   dependencies:
     "@vue/compiler-dom" "3.2.33"
     "@vue/shared" "3.2.33"
+
+"@vue/devtools-api@^6.0.0":
+  version "6.1.4"
+  resolved "https://registry.yarnpkg.com/@vue/devtools-api/-/devtools-api-6.1.4.tgz#b4aec2f4b4599e11ba774a50c67fa378c9824e53"
+  integrity sha512-IiA0SvDrJEgXvVxjNkHPFfDx6SXw0b/TUkqMcDZWNg9fnCAHbTpoo59YfJ9QLFkwa3raau5vSlRVzMSLDnfdtQ==
 
 "@vue/reactivity-transform@3.2.33":
   version "3.2.33"
@@ -4968,6 +4993,13 @@ vue-eslint-parser@^9.0.1:
     esquery "^1.4.0"
     lodash "^4.17.21"
     semver "^7.3.6"
+
+vue-router@^4.0.15:
+  version "4.0.15"
+  resolved "https://registry.yarnpkg.com/vue-router/-/vue-router-4.0.15.tgz#b4a0661efe197f8c724e0f233308f8776e2c3667"
+  integrity sha512-xa+pIN9ZqORdIW1MkN2+d9Ui2pCM1b/UMgwYUCZOiFYHAvz/slKKBDha8DLrh5aCG/RibtrpyhKjKOZ85tYyWg==
+  dependencies:
+    "@vue/devtools-api" "^6.0.0"
 
 vue-tsc@^0.29.8:
   version "0.29.8"

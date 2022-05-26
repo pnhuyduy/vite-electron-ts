@@ -16,10 +16,9 @@
   "scripts": {
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
-    "dev": "electron-dev-runner src/main/index.ts --vite",
-    "start": "electron dist/main/index.js",
+    "web:dev": "vite",
+    "app:dev": "electron-dev-runner src/main/index.ts --vite",
     "build": "tsc src/main/index.ts --moduleResolution Node --removeComments -t ES5 --outDir dist/main && vue-tsc --noEmit && vite build",
-    "serve": "vite preview",
     "bd": "yarn build && electron-builder",
     "bdm": "yarn build && electron-builder -m",
     "bdw": "yarn build && electron-builder -w"

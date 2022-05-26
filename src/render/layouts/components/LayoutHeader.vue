@@ -15,7 +15,6 @@ const me = ref({
 const options = computed(() => [
   { key: 'me', label: `Hey, ${me.value?.name as string}!` },
   { key: 'divider', type: 'divider' },
-  { key: 'divider', type: 'divider' },
   { key: 'logout', label: 'Sign out' },
 ])
 

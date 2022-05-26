@@ -10,11 +10,12 @@
   <img src="https://img.shields.io/badge/Electron-^12.0.1-brightgreen?style=plastic&logo=electron">
 </p>
 
-This template should help get you started developing with Vite、Vue 3 and Typescript in Electron.
+This template is forked from https://github.com/cyytemplate/vite-electron-ts
 
-## How to Use
-
-clone this repository or use [ctm-cli](https://www.npmjs.com/package/ctm-cli) tool.
+## Features
+- Vue 3 Component Library [Naive UI](https://github.com/TuSimple/naive-ui)
+- CSS Framework [WindiCSS](https://github.com/windicss/windicss)
+- Auto import with [unplugin-auto-import](https://github.com/antfu/unplugin-auto-import)
 
 ## Run Dev
 

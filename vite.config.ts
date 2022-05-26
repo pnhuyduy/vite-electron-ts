@@ -5,6 +5,7 @@ import Components from 'unplugin-vue-components/vite'
 import { NaiveUiResolver } from 'unplugin-vue-components/resolvers'
 import WindiCSS from 'vite-plugin-windicss'
 import AutoImport from 'unplugin-auto-import/vite'
+import electron from 'vite-plugin-electron'
 const root = resolve(__dirname, 'src/render')
 const outDir = resolve(__dirname, 'dist/render')
 
@@ -15,6 +16,7 @@ export default defineConfig({
   build: {
     outDir,
     emptyOutDir: true,
+    sourcemap: false,
   },
   resolve: {
     alias: {
@@ -43,6 +45,12 @@ export default defineConfig({
         enabled: true, // Default `false`
         filepath: './.eslintrc-auto-import.json', // Default `./.eslintrc-auto-import.json`
         globalsPropValue: true, // Default `true`, (true | false | 'readonly' | 'readable' | 'writable' | 'writeable')
+      },
+    }),
+    electron({
+      main: {
+        entry: 'src/main/index.ts',
+        vite: { build: { outDir: 'dist/main', sourcemap: false } },
       },
     }),
   ],

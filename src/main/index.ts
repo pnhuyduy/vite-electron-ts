@@ -32,12 +32,7 @@ function createWindow() {
   }
   // and load the index.html of the app.
   mainWindow.loadURL(WinURL)
-  mainWindow.on('close', event => {
-    if (!willQuitApp) {
-      event.preventDefault()
-      mainWindow?.hide()
-    }
-  })
+
   // Emitted when the window is closed.
   mainWindow.on('closed', () => {
     mainWindow = null
@@ -45,12 +40,36 @@ function createWindow() {
   mainWindow.once('ready-to-show', () => {
     mainWindow?.show()
   })
+
+  return mainWindow
+}
+
+async function restoreOrCreateWindow() {
+  if (mainWindow?.isMinimized()) mainWindow?.restore()
+  if (mainWindow) mainWindow?.focus()
+  else createWindow()
 }
 
 app.on('ready', createWindow)
 
+app.on('activate', async () => {
+  try {
+    await restoreOrCreateWindow()
+  } catch (error) {
+    app.quit()
+  }
+})
+
 app.on('window-all-closed', () => {
   if (process.platform !== 'darwin') app.quit()
+})
+
+app.on('second-instance', async () => {
+  try {
+    await restoreOrCreateWindow()
+  } catch (error) {
+    app.quit()
+  }
 })
 
 app.on('activate', () => {

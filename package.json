@@ -16,9 +16,8 @@
   "scripts": {
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
-    "web:dev": "vite",
-    "app:dev": "electron-dev-runner src/main/index.ts --vite",
-    "build": "tsc src/main/index.ts --moduleResolution Node --removeComments -t ES5 --outDir dist/main && vue-tsc --noEmit && vite build",
+    "dev": "vite",
+    "build": "vite build",
     "bd": "yarn build && electron-builder",
     "bdm": "yarn build && electron-builder -m",
     "bdw": "yarn build && electron-builder -w"
@@ -38,12 +37,12 @@
     "@vue/compiler-sfc": "^3.2.23",
     "electron": "^16.0.4",
     "electron-builder": "^22.14.5",
-    "electron-dev-runner": "^1.0.2",
     "eslint": "^8.16.0",
     "typescript": "^4.5.2",
     "unplugin-auto-import": "^0.8.5",
     "unplugin-vue-components": "^0.19.5",
     "vite": "^2.6.14",
+    "vite-plugin-electron": "^0.4.5",
     "vite-plugin-windicss": "^1.8.4",
     "vue-tsc": "^0.29.8",
     "windicss": "^3.5.4"

@@ -9,11 +9,7 @@ const WinURL = isDev
   : `file://${join(__dirname, '../../dist/render/index.html')}`
 
 let mainWindow: BrowserWindow | null = null
-
-if (!app.requestSingleInstanceLock()) {
-  app.quit()
-  process.exit(0)
-}
+let willQuitApp = false
 
 function createWindow() {
   mainWindow = new BrowserWindow({
@@ -21,6 +17,7 @@ function createWindow() {
     minHeight: 700,
     width: 1240,
     height: 700,
+    titleBarStyle: 'hidden',
     webPreferences: {
       contextIsolation: false,
       // enableRemoteModule: false,
@@ -35,7 +32,12 @@ function createWindow() {
   }
   // and load the index.html of the app.
   mainWindow.loadURL(WinURL)
-
+  mainWindow.on('close', event => {
+    if (!willQuitApp) {
+      event.preventDefault()
+      mainWindow?.hide()
+    }
+  })
   // Emitted when the window is closed.
   mainWindow.on('closed', () => {
     mainWindow = null
@@ -51,16 +53,8 @@ app.on('window-all-closed', () => {
   if (process.platform !== 'darwin') app.quit()
 })
 
-app.on('second-instance', async () => {
-  try {
-    if (!mainWindow) createWindow()
-    else mainWindow.show()
-  } catch (error) {
-    app.quit()
-  }
-})
-
 app.on('activate', () => {
   if (!mainWindow) createWindow()
   else mainWindow.show()
 })
+app.on('before-quit', () => (willQuitApp = true))

@@ -1,6 +1,6 @@
 import { join } from 'path'
-import { BrowserWindow, app } from 'electron'
-
+import { BrowserWindow, app, dialog, ipcMain } from 'electron'
+import { Nullable } from 'src/common/types'
 process.env.ELECTRON_DISABLE_SECURITY_WARNINGS = 'true'
 
 const isDev = process.env.NODE_ENV === 'development'
@@ -8,8 +8,7 @@ const WinURL = isDev
   ? 'http://localhost:3000'
   : `file://${join(__dirname, '../../dist/render/index.html')}`
 
-let mainWindow: BrowserWindow | null = null
-let willQuitApp = false
+let mainWindow: Nullable<BrowserWindow> = null
 
 function createWindow() {
   mainWindow = new BrowserWindow({
@@ -19,10 +18,7 @@ function createWindow() {
     height: 700,
     titleBarStyle: 'hidden',
     webPreferences: {
-      contextIsolation: false,
-      // enableRemoteModule: false,
-      // webSecurity: true,
-      nodeIntegration: true,
+      preload: join(__dirname, '../preload/index.js'),
     },
   })
 
@@ -72,8 +68,8 @@ app.on('second-instance', async () => {
   }
 })
 
-app.on('activate', () => {
-  if (!mainWindow) createWindow()
-  else mainWindow.show()
+ipcMain.handle('show-dialog', (event, arg) => {
+  dialog.showMessageBoxSync(mainWindow, {
+    message: `received message from renderer process: ${arg}`,
+  })
 })
-app.on('before-quit', () => (willQuitApp = true))

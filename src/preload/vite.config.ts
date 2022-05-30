@@ -10,7 +10,7 @@ export default defineConfig({
     emptyOutDir: true,
     minify: process.env.NODE_ENV === 'production',
     // https://github.com/caoxiemeihao/electron-vue-vite/issues/61
-    sourcemap: 'inline',
+    sourcemap: false,
     rollupOptions: {
       input: {
         // multiple entry

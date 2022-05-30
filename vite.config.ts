@@ -23,39 +23,4 @@ export default defineConfig({
       '@': resolve(__dirname, 'src/render'),
     },
   },
-  plugins: [
-    vue(),
-    Components({
-      resolvers: [NaiveUiResolver()],
-    }),
-    WindiCSS({
-      scan: {
-        dirs: ['.'], // all files in the cwd
-        fileExtensions: ['vue', 'js', 'ts'], // also enabled scanning for js/ts
-      },
-    }),
-    AutoImport({
-      include: [
-        /\.[tj]sx?$/, // .ts, .tsx, .js, .jsx
-        /\.vue$/,
-        /\.vue\?vue/, // .vue
-      ],
-      imports: ['vue'],
-      eslintrc: {
-        enabled: true, // Default `false`
-        filepath: './.eslintrc-auto-import.json', // Default `./.eslintrc-auto-import.json`
-        globalsPropValue: true, // Default `true`, (true | false | 'readonly' | 'readable' | 'writable' | 'writeable')
-      },
-    }),
-    electron({
-      main: {
-        entry: 'src/main/index.ts',
-        vite: { build: { outDir: 'dist/main', sourcemap: false } },
-      },
-      preload: {
-        input: 'src/preload/index.ts',
-        vite: { build: { outDir: 'dist/preload', sourcemap: false } },
-      },
-    }),
-  ],
 })

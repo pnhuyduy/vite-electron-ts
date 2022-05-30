@@ -12,15 +12,12 @@
     "vue",
     "electron"
   ],
-  "main": "dist/main/index.js",
+  "main": "dist/main/index.cjs",
   "scripts": {
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
-    "dev": "vite",
-    "build": "vite build",
-    "bd": "yarn build && electron-builder",
-    "bdm": "yarn build && electron-builder -m",
-    "bdw": "yarn build && electron-builder -w"
+    "dev": "node scripts/watch.mjs",
+    "build": "node scripts/build.mjs && electron-builder"
   },
   "dependencies": {
     "naive-ui": "^2.29.0",
@@ -33,9 +30,9 @@
     "@vicons/fa": "^0.12.0",
     "@vicons/ionicons4": "^0.12.0",
     "@vicons/ionicons5": "^0.12.0",
-    "@vitejs/plugin-vue": "^1.10.1",
+    "@vitejs/plugin-vue": "^2.3.3",
     "@vue/compiler-sfc": "^3.2.23",
-    "electron": "^16.0.4",
+    "electron": "^19.0.1",
     "electron-builder": "^22.14.5",
     "eslint": "^8.16.0",
     "typescript": "^4.5.2",
@@ -61,7 +58,12 @@
     },
     "files": [
       "dist/main/**/*",
-      "dist/render/**/*"
+      "dist/render/**/*",
+      "dist/preload/**/*"
     ]
+  },
+  "env": {
+    "VITE_DEV_SERVER_HOST": "127.0.0.1",
+    "VITE_DEV_SERVER_PORT": 3000
   }
 }

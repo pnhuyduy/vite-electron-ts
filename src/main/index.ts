@@ -18,7 +18,7 @@ function createWindow() {
     height: 700,
     titleBarStyle: 'hidden',
     webPreferences: {
-      preload: join(__dirname, '../preload/index.js'),
+      preload: join(__dirname, '../preload/index.cjs'),
     },
   })
 
@@ -70,6 +70,6 @@ app.on('second-instance', async () => {
 
 ipcMain.handle('show-dialog', (event, arg) => {
   dialog.showMessageBoxSync(mainWindow, {
-    message: `received message from renderer process: ${arg}`,
+    message: `received message from render process: ${arg}`,
   })
 })

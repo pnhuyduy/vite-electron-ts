@@ -10,6 +10,8 @@ const WinURL = isDev
 
 let mainWindow: Nullable<BrowserWindow> = null
 
+import './db'
+
 function createWindow() {
   mainWindow = new BrowserWindow({
     minWidth: 1140,
